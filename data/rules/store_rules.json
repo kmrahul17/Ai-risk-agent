@@ -1,0 +1,99 @@
+{
+  "shipping": {
+    "express_delivery": {
+      "available": true,
+      "fee_rupees": 10,
+      "eta_days": 1
+    },
+
+    "free_shipping_threshold": 999,
+
+    "delivery_rules": {
+      "metro": {
+        "min_days": 1,
+        "max_days": 2
+      },
+
+      "tier2": {
+        "min_days": 2,
+        "max_days": 4
+      },
+
+      "remote": {
+        "min_days": 3,
+        "max_days": 5
+      }
+    }
+  },
+
+  "discounts": {
+    "max_discount_percent": 5,
+
+    "cart_value_rules": [
+      {
+        "min_value": 500,
+        "discount_percent": 2
+      },
+
+      {
+        "min_value": 1000,
+        "discount_percent": 3
+      },
+
+      {
+        "min_value": 2500,
+        "discount_percent": 5
+      }
+    ]
+  },
+
+  "payment": {
+    "cod_allowed": true,
+
+    "upi_cashback": {
+      "available": true,
+      "amount_rupees": 20
+    },
+
+    "retry_limit": 2
+  },
+
+  "inventory": {
+    "low_stock_threshold": 5,
+
+    "show_low_stock_message": true
+  },
+
+  "customer_rules": {
+    "returning_user_extra_discount": 2,
+
+    "new_user_coupon": {
+      "available": true,
+      "code": "WELCOME50",
+      "discount_rupees": 50
+    }
+  },
+
+  "offers": {
+     "home": [
+    "new_user_coupon",
+    "featured_products"
+  ],
+
+    "cart_abandonment": [
+      "express_delivery",
+      "cart_discount",
+      "upi_cashback"
+    ],
+
+    "checkout_abandonment": [
+      "cod_option",
+      "upi_cashback"
+    ],
+
+    "product_page_exit": [
+      "low_stock_message",
+      "new_user_coupon"
+    ]
+  }
+}
