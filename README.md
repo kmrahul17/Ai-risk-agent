@@ -75,18 +75,11 @@ Domains involved:
 
 ## Demo Video Link
 
-**Demo Video:**  
-[Paste YouTube / Google Drive Link]
+[![Watch Demo Video](https://img.shields.io/badge/Watch-Demo%20Video-blue?style=for-the-badge)](https://drive.google.com/file/d/1BDFcyP3CTXahxjvHd8w4rOKvTILZdUkb/view?usp=drivesdk)
 
 ---
 
 ## Tech Stack Used
-
-### Frontend
-
-- React (Vite)
-- JavaScript
-- Tailwind CSS
 
 ### Backend
 
@@ -115,32 +108,38 @@ Domains involved:
 
 ## Backend Architecture / System Design
 
-### System Flow
+### Architecture Overview
 
-```txt
-Customer Session
-(Home / Product / Cart / Checkout)
-        ↓
-Frontend sends live session JSON
-        ↓
-FastAPI API
-(Render deployment)
-        ↓
-XGBoost
-(Predict abandonment probability)
-        ↓
-SHAP
-(Explain top reasons)
-        ↓
-Rule Retrieval
-(Store rules / valid offers)
-        ↓
-Groq + Llama 3.1
-(Generate best personalized action)
-        ↓
-JSON Response
-        ↓
-Frontend updates instantly
+<p align="center">
+  <img
+    src="./assests/architecture.png"
+    alt="AI User Conversion Agent Architecture"
+    width="900"
+  />
+</p>
+
+The system continuously tracks customer activity across the ecommerce journey and predicts the probability of abandonment in real time.
+
+It combines:
+
+- XGBoost risk prediction
+- SHAP explainability
+- store rule retrieval
+- Groq + Llama 3.1 recommendation generation
+
+to return the best personalized action for improving customer conversion.
+
+---
+
+### Workflow
+
+<p align="center">
+  <img
+    src="./assests/workflow.jpg"
+    alt="AI User Conversion Agent Workflow"
+    width="900"
+  />
+</p>
 ```
 
 ### Live API
@@ -158,7 +157,7 @@ https://ai-risk-agent.onrender.com/docs
 Built specifically to test the AI system in real time:
 
 **Demo Ecommerce Website:**  
-[Paste deployed ecommerce frontend link]
+[[Paste deployed ecommerce frontend link](https://demo-site-git-main-kmrahul0206-4780s-projects.vercel.app/)]
 
 ---
 
@@ -229,7 +228,9 @@ Negative = reduces risk
 
 ### 4. Rule Retrieval
 
-Rules stored in JSON.
+Used a lightweight Retrieval-Augmented Generation (RAG) approach.
+
+Store business rules are maintained in JSON and act as the retrieval knowledge base.
 
 Examples:
 
@@ -418,29 +419,6 @@ http://127.0.0.1:8000/docs
 
 ---
 
-## Screenshots (Optional)
-
-Add screenshots here:
-
-### Ecommerce Demo
-
-```txt
-./screenshots/demo.png
-```
-
-### API Docs
-
-```txt
-./screenshots/api.png
-```
-
-### AI Panel
-
-```txt
-./screenshots/agent.png
-```
-
----
 
 ## Author
 
