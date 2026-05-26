@@ -157,7 +157,7 @@ https://ai-risk-agent.onrender.com/docs
 Built specifically to test the AI system in real time:
 
 **Demo Ecommerce Website:**  
-[[Paste deployed ecommerce frontend link](https://demo-site-git-main-kmrahul0206-4780s-projects.vercel.app/)]
+[[link](https://demo-site-git-main-kmrahul0206-4780s-projects.vercel.app/)]
 
 ---
 
