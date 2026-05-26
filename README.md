@@ -1,105 +1,99 @@
-# AI Risk Agent – Real-Time Ecommerce Conversion Recovery Backend AI Agent
+# AI User Conversion Agent  
+### Real-Time Ecommerce Customer Conversion & Recovery System
+
+---
 
 ## Project Title & Brief Description
 
-AI Risk Agent is a backend-first AI system built for ecommerce conversion recovery.
+AI User Conversion Agent is an intelligent ecommerce AI system designed to improve customer conversions in real time.
 
-The goal is to detect customers who may leave an ecommerce website during:
+Before starting this project, I explored the Steps AI website and the way Steps AI focuses on building practical AI agents for businesses and real-world workflows.
 
-- Home page
-- Product page
-- Cart
-- Checkout
+That strongly inspired this idea.
 
-and intervene in real time with the best personalized action.
+Based on that vision, I wanted to build an AI product that Steps AI can offer to ecommerce companies to improve conversions and reduce customer drop-offs during the buying journey.
 
-The system predicts abandonment probability, explains why risk is increasing, retrieves relevant store rules, and uses an LLM to generate a safe personalized intervention.
+In ecommerce, users often:
+
+- visit the homepage
+- browse products
+- add items to cart
+- proceed to checkout
+
+…and then leave without completing the purchase.
+
+This directly impacts:
+
+- **Conversions**
+- **Revenue**
+- **Customer retention**
+
+Most platforms show generic offers.
+
+But every customer session is different.
+
+AI User Conversion Agent solves this by monitoring the customer journey in real time and generating personalized interventions before the user exits.
+
+The system:
+
+✅ predicts abandonment risk  
+✅ explains why risk is increasing  
+✅ retrieves valid store rules  
+✅ recommends the best personalized action
 
 Examples:
 
 - Welcome coupon
 - Featured products
-- Express delivery
 - Free shipping
-- UPI cashback
-- COD recommendation
+- Express delivery
+- Cashback
+- COD suggestion
 
-This project is built as a **public backend AI API**, so it can be integrated into any ecommerce frontend.
+### Goal
 
-To demonstrate this, I also built a sample ecommerce website connected to the live API.
+**Help ecommerce businesses increase conversions and reduce users leaving the site without buying.**
 
 ---
 
-# Selected Problem Statement
+## Selected Problem Statement
 
-## Open Track – AI Agents for Real World Problems
+### Open Track – AI Agents for Real World Problems
 
-Build an AI-powered agentic solution solving a real-world problem using:
+Domains involved:
 
 - AI Automation
 - Analytics
 - Business Intelligence
 - Intelligent Systems
 
-Chosen use case:
+### Chosen Use Case
 
-**Real-time Ecommerce Conversion Recovery using AI**
+## AI User Conversion Agent for Ecommerce
 
 ---
 
-# Demo Video Link
-
-Add here:
+## Demo Video Link
 
 **Demo Video:**  
-[Paste YouTube / Google Drive link]
+[Paste YouTube / Google Drive Link]
 
 ---
 
-# Live Demo
+## Tech Stack Used
 
-## Backend API (Render)
-
-https://ai-risk-agent.onrender.com
-
-FastAPI Docs:
-
-https://ai-risk-agent.onrender.com/docs
-
----
-
-## Sample Ecommerce Demo Site
-
-This is a frontend demo built to test the backend AI agent in real time:
-
-**Demo Ecommerce Website:**  
-[Paste deployed ecommerce frontend link]
-
-The site simulates:
-
-- Home
-- Product
-- Cart
-- Checkout
-
-and calls the backend API live as the customer moves through pages.
-
----
-
-# Tech Stack Used
-
-## Frontend
+### Frontend
 
 - React (Vite)
 - JavaScript
-- Tailwind / CSS
+- Tailwind CSS
 
-## Backend
+### Backend
 
 - FastAPI
 - Python
 
-## Machine Learning
+### Machine Learning
 
 - XGBoost
 - SHAP
@@ -107,85 +101,98 @@ and calls the backend API live as the customer moves through pages.
 - pandas
 - numpy
 
-## LLM
+### LLM
 
-- Groq Cloud
+- Groq Cloud API
 - Llama-3.1-8b-instant
 
-## Deployment
+### Deployment
 
 - Render
 - GitHub
 
 ---
 
-# Backend Architecture / System Design
+## Backend Architecture / System Design
 
-This project is designed as a reusable backend AI service.
-
-## System Flow
+### System Flow
 
 ```txt
-Customer browsing session
+Customer Session
 (Home / Product / Cart / Checkout)
         ↓
-Frontend sends session JSON
+Frontend sends live session JSON
         ↓
-FastAPI Backend API
+FastAPI API
 (Render deployment)
         ↓
-XGBoost model
+XGBoost
 (Predict abandonment probability)
         ↓
-SHAP explainability
-(Why risk is increasing)
+SHAP
+(Explain top reasons)
         ↓
-Rule retrieval
-(Store rules JSON)
+Rule Retrieval
+(Store rules / valid offers)
         ↓
-Groq LLM
-(Llama 3.1)
+Groq + Llama 3.1
+(Generate best personalized action)
         ↓
-Personalized intervention
-        ↓
-JSON response
+JSON Response
         ↓
 Frontend updates instantly
 ```
 
+### Live API
+
+Backend deployed on Render:
+
+**API:**  
+https://ai-risk-agent.onrender.com
+
+**FastAPI Docs:**  
+https://ai-risk-agent.onrender.com/docs
+
+### Demo Ecommerce Site
+
+Built specifically to test the AI system in real time:
+
+**Demo Ecommerce Website:**  
+[Paste deployed ecommerce frontend link]
+
 ---
 
-# Implementation Approach & Workflow
+## Implementation Approach & Workflow
 
-## 1. Synthetic Ecommerce Dataset
+### 1. Synthetic Ecommerce Dataset
 
-Generated realistic ecommerce user sessions using:
+Created realistic ecommerce session data using:
 
-- browsing time
+- time spent
 - page stage
 - device type
 - delivery zone
 - cart value
-- item count
+- cart item count
+- delivery ETA
 - coupon availability
 - returning user
 - idle time
-- delivery ETA
 
 ---
 
-## 2. Abandonment Risk Prediction
+### 2. Abandonment Risk Prediction
 
-Used XGBoost to predict abandonment probability.
+Used **XGBoost**.
 
-Output:
+Predicts:
 
 ```txt
-0.0 → low risk
-1.0 → high risk
+0.0 → Low risk
+1.0 → High risk
 ```
 
-Examples:
+Example:
 
 ```txt
 0.13 → Low
@@ -193,7 +200,7 @@ Examples:
 0.81 → High
 ```
 
-Best observed metrics:
+### Best observed results
 
 ```txt
 Accuracy: 0.76
@@ -202,9 +209,9 @@ ROC AUC: 0.778
 
 ---
 
-## 3. Explainability
+### 3. Explainable AI
 
-Used SHAP to identify top risk contributors.
+Used **SHAP**.
 
 Example:
 
@@ -214,17 +221,13 @@ idle_seconds +0.55
 cart_value -0.28
 ```
 
-Positive:
+Positive = increases risk
 
-Increases risk
-
-Negative:
-
-Reduces risk
+Negative = reduces risk
 
 ---
 
-## 4. Business Rule Retrieval
+### 4. Rule Retrieval
 
 Rules stored in JSON.
 
@@ -233,14 +236,14 @@ Examples:
 - express delivery ₹10
 - free shipping above ₹999
 - WELCOME50
-- UPI cashback
+- cashback
 - COD
 
-Only valid retrieved rules are passed to the LLM.
+Only valid rules are passed to LLM.
 
 ---
 
-## 5. LLM Recommendation
+### 5. Personalized Recommendation
 
 Using:
 
@@ -250,11 +253,11 @@ Using:
 Input:
 
 - risk score
-- reasons
 - page stage
-- retrieved rules
+- top reasons
+- rules
 
-Output example:
+Example output:
 
 ```json
 {
@@ -265,43 +268,9 @@ Output example:
 
 ---
 
-## 6. Public Backend API
+### 6. Real-Time Frontend Demo
 
-Hosted using FastAPI on Render.
-
-Endpoint:
-
-```txt
-POST /analyze
-```
-
-Example response:
-
-```json
-{
-  "risk": {
-    "risk_score": 0.518
-  },
-
-  "reasons": {
-    "delivery_eta_days": 0.628,
-    "idle_seconds": 0.623
-  },
-
-  "offer": {
-    "action": "offer",
-    "message": "Free shipping on cart value above ₹999"
-  }
-}
-```
-
----
-
-## 7. Real-Time Frontend Demo
-
-Built a sample ecommerce frontend connected to the live backend.
-
-As the user moves:
+Customer flow:
 
 ```txt
 Home
@@ -310,45 +279,34 @@ Home
 → Checkout
 ```
 
-the frontend calls the API instantly.
+Frontend calls API live.
 
-The UI updates with:
+UI updates instantly with:
 
-- page
+- current page
 - risk score
 - top reasons
-- offer
-- apply offer
-
-in real time.
+- personalized offer
 
 ---
 
-# Features & Functionalities
+## Features & Functionalities
 
-## Real-Time Risk Prediction
+### Real-Time Risk Prediction
 
 Predicts abandonment instantly.
 
 ---
 
-## Explainable AI
+### Explainable AI
 
-Shows why risk is increasing.
-
----
-
-## Safe Rule-Based Recommendations
-
-LLM cannot invent offers.
-
-Uses only retrieved store rules.
+Shows why the user may leave.
 
 ---
 
-## Page-Aware Personalization
+### Personalized Page-Aware Recommendations
 
-Different actions for:
+Different actions based on:
 
 - Home
 - Product
@@ -357,30 +315,36 @@ Different actions for:
 
 ---
 
-## Public API
+### Rule-Safe LLM
 
-Reusable backend for any ecommerce frontend.
-
----
-
-## Live Demo Site
-
-Frontend connected to deployed backend.
+Recommendations only use valid business rules.
 
 ---
 
-# APIs / Models / Tools Used
+### Public REST API
 
-## APIs
+Reusable with any ecommerce frontend.
+
+---
+
+### Live Demo Website
+
+Connected to deployed API.
+
+---
+
+## APIs / Models / Tools Used
+
+### APIs
 
 - Groq API
 
-## Models
+### Models
 
 - XGBoost
 - Llama-3.1-8b-instant
 
-## Tools
+### Tools
 
 - SHAP
 - FastAPI
@@ -389,9 +353,9 @@ Frontend connected to deployed backend.
 
 ---
 
-# Setup Instructions to Run Locally
+## Setup Instructions to Run Locally
 
-## Clone repository
+### Clone repository
 
 ```bash
 git clone https://github.com/kmrahul17/Ai-risk-agent.git
@@ -400,13 +364,13 @@ cd Ai-risk-agent
 
 ---
 
-# Environment Variables Required
+## Environment Variables Required
 
-Create `.env`
+Create:
+
+### `.env`
 
 Example:
-
-## `.env.example`
 
 ```env
 GROQ_API_KEY=your_groq_api_key_here
@@ -414,9 +378,9 @@ GROQ_API_KEY=your_groq_api_key_here
 
 ---
 
-# Installation Steps
+## Installation Steps
 
-## Install dependencies
+### Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -424,7 +388,7 @@ pip install -r requirements.txt
 
 ---
 
-## Train model
+### Train model
 
 ```bash
 python main.py
@@ -432,7 +396,7 @@ python main.py
 
 ---
 
-## Test backend
+### Test locally
 
 ```bash
 python test_agent.py
@@ -440,7 +404,7 @@ python test_agent.py
 
 ---
 
-## Run FastAPI
+### Run FastAPI
 
 ```bash
 python -m uvicorn src.api.app:app --reload
@@ -454,45 +418,34 @@ http://127.0.0.1:8000/docs
 
 ---
 
-# Screenshots (Optional)
+## Screenshots (Optional)
 
-Add screenshots here.
+Add screenshots here:
 
-Example:
+### Ecommerce Demo
 
-## Ecommerce Demo
+```txt
+./screenshots/demo.png
+```
 
-![Ecommerce Demo](./screenshots/demo.png)
+### API Docs
 
----
+```txt
+./screenshots/api.png
+```
 
-## API Docs
+### AI Panel
 
-![API Docs](./screenshots/api.png)
-
----
-
-## AI Panel
-
-![AI Panel](./screenshots/agent.png)
-
----
-
-# Future Improvements
-
-- real analytics integration
-- A/B testing
-- customer segmentation
-- analytics dashboard
-- browser extension integration
-- multi-store rule support
+```txt
+./screenshots/agent.png
+```
 
 ---
 
-# Author
+## Author
 
 Built for **Steps AI National Level Online Hackathon 2026**
 
-By:
+By
 
 **Karanam Mohan Rahul**
