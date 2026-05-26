@@ -114,7 +114,7 @@ Domains involved:
   <img
     src="./assests/architecture.png"
     alt="AI User Conversion Agent Architecture"
-    width="900"
+    width="700"
   />
 </p>
 
@@ -140,7 +140,7 @@ to return the best personalized action for improving customer conversion.
     width="900"
   />
 </p>
-```
+
 
 ### Live API
 
